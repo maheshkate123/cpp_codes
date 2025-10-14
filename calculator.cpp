@@ -8,7 +8,7 @@ int main(){
     cin >> a >>operation >> b;
 
     switch(operation){
-        case '+':cout <<a<<operation<<b<<"="<<a+b;
+        case '+':cout <<a<<operation<<b<<"="<<a+b<<endl;
         break;
         case '-':cout <<a<<operation<<b<<"="<<a-b;
         break;
