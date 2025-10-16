@@ -1,16 +1,22 @@
 #include <iostream>
 using namespace std;
 
-class Employee {
-private:
+
+class AbstractEmployee{           // abstract class 
+    virtual void AskForPromotion()=0;
+
+};
+
+class Employee :AbstractEmployee{
+public:
     int Age;
     double Salary ;
     string Company;
     string Name;
 
-public:
+public:   
     void SetName (string name){
-        Name = name;
+        Name = name;                               //setter
     }
     string getName(){
         return Name;
@@ -20,7 +26,7 @@ public:
         Company = Company;
     }
     string getCompany(){
-        return Company;
+        return Company;              //getter 
     }
 
     void setAge(int age){
@@ -39,7 +45,13 @@ public:
         cout << " SAlary ::" << Salary << endl;
         
     }
-
+    void AskForPromotion(){
+        if(Age>30){
+            cout << Name << " got promoted" << endl;
+        }else{
+            cout << Name << " no promotion sorry " << endl;
+        }
+    }
 
     Employee (string name , string company , int age){  // parameterized constrort
         Name = name;
@@ -49,6 +61,36 @@ public:
 
 };
 
+class Developer : public Employee{
+public:
+    string FavProgrammingLang;
+
+    Developer(string name , string company , int age, string favProgrammingLang ):
+    Employee(name , company ,age){
+        FavProgrammingLang = favProgrammingLang;
+    }
+    void FixBug(){
+        cout << getName() << " fixed bug using " << FavProgrammingLang << endl;
+    }    
+    
+    };
+
+class Teacher:Employee{
+public:
+    string Subject;
+    void PrepareLesson(){
+        cout <<  Name << " is preparing " <<  Subject << " lesson " <<endl;
+
+    }
+
+    Teacher(string name , string company , int  age , string subject)
+             :Employee(name ,company,age){
+                Subject = subject ; 
+             }
+
+};
+
+
 int main(){
     Employee employee1 = Employee("Raj" , "Tata" , 32);
     // employee1.Name = "Mahesh";
@@ -56,7 +98,8 @@ int main(){
     // employee1.Age = 28 ;
     // employee1.Company = "Novus Hitech";
 
-    employee1.IntroduceYourself();
+    // employee1.IntroduceYourself();
+    employee1.AskForPromotion();
 
 
     cout  << endl;
@@ -66,11 +109,25 @@ int main(){
     // employee2.Comapany = "Google" ;
     // employee2.age = 32;
     // employee2.Salary = 1450000;
-    employee2.IntroduceYourself();
+    // employee2.IntroduceYourself();
+    employee2.AskForPromotion();
 
-    employee2.setAge(22);
-    cout << employee2.getAge() << "is " << employee2.getAge() << " years old" ;
+    // employee2.setAge(22);
+    // cout << employee2.getAge() << "is " << employee2.getAge() << " years old" ;
+
+    Developer d = Developer("RK" , "GOOGLE" , 32 , "C++");
+    Developer d1 = Developer("MK" ,"MEta" , 34, "python"); 
+    d.FixBug();
+    d1.FixBug();
+
+    d.AskForPromotion();
+
+
+    Teacher t = Teacher("JK" ,"cool Teacher " , 32 , " History");
+    t.PrepareLesson();
+
 
 return  0 ;
+
 
 }
