@@ -22,7 +22,7 @@ int main(){
 
     cout << " Name ::" << yt1.Name << endl;
     cout << " OwnerName ::" << yt1.OwnerName << endl;
-    cout << " Subscrivee    nawme  ::" << yt1.SubscribersCount << endl;
+    cout << " Subscrivers  ::" << yt1.SubscribersCount << endl;
     cout << "Videos "<< endl;
 
 

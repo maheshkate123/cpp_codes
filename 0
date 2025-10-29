@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+
+class EmployeeDetails{      //class
+public:
+    int Age ;
+    string Name ;
+    double  Salary;               // data variables 
+
+};
+
+int main(){           //main function
+    EmployeeDetails emp1;
+    emp1.Name =  " Raj" ;
+    emp1.Age = 32;
+    emp1.Salary = 67560;
+ 
+    cout << "name :" << emp1.Name <<endl;
+    cout << "age :" << emp1.Age <<endl;
+    cout << "saalry :" << emp1.Salary <<endl;
+
+
+
+return 0;
+
+}
